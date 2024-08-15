@@ -18,24 +18,78 @@ function operate(firstNumber, operator, secondNumber) {
 
     switch(operator) {
         case '+':
-            alert(add(firstNumber, secondNumber));
+            display(add(firstNumber, secondNumber));
             break;
         case '-':
-            alert(substract(firstNumber, secondNumber));
+            display(substract(firstNumber, secondNumber));
             break;
         case '*':
-            alert(multiply(firstNumber, secondNumber));
+            display(multiply(firstNumber, secondNumber));
             break;
         case '/':
-            alert(divide(firstNumber, secondNumber));
+            display(divide(firstNumber, secondNumber));
             break;    
     }
 }
 
-const operationString = prompt("Enter the operation");
 
-let operationArray = operationString.split('');
+function display(displayValue) {
 
-const firstNumber = parseInt(operationArray[0]);
-const operator = operationArray[1];
-const secondNumber = parseInt(operationArray[2]);
+    if(!isDigit(displayValue)){
+        return;
+    }
+
+    const display = document.querySelector(".display");
+
+    display.textContent = displayValue;
+
+}
+
+
+function isDigit(value) {
+
+    const digits = "0123456789";
+
+    return digits.includes(value);
+
+}
+
+function isOperator(value) {
+    return "+-/*".includes(value);
+}
+
+function updateVariables(value) {
+
+    if(!firstNumber && isDigit(value)){
+        firstNumber = value;
+    } else if (isOperator(value)) {
+        operand = value;
+    } else {
+        firstNumber = result;
+        secondNumber = value;
+    }
+
+}
+
+
+
+let firstNumber;
+let operator;
+let secondNumber;
+let displayValue;
+
+const buttons = document.querySelectorAll(".digits button");
+
+buttons.forEach( (button) => {
+
+    button.addEventListener("click", () => {
+        displayValue = button.textContent;
+        display(displayValue);
+
+
+        updateVariables(displayValue);
+
+    })
+
+} )
+
