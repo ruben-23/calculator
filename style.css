@@ -14,6 +14,8 @@ button {
 
 .calculator {
     width: 400px;
+    border: 5px solid black;
+    padding: 20px
 }
 
 .display {
@@ -25,6 +27,8 @@ button {
 .buttons {
     display: flex;
     justify-content: space-around;
+    border: 2px solid black;
+    padding: 10px;
 }
 
 .digits {
@@ -49,7 +53,7 @@ button {
 }
 
 .operator {
-    width: 70px;
+    width: 80px;
     height: 50px;
     font-size: 24px;
 }
