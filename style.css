@@ -7,6 +7,10 @@ html, body {
     align-items: center;
 }
 
+.calculator {
+    width: 300px;
+}
+
 .display {
     border: 2px solid black;
     height: 24px;
@@ -20,4 +24,16 @@ html, body {
 .operators {
     display: flex;
     flex-direction: column;
+}
+
+.digit {
+    width: 70px;
+    height: 70px;
+    font-size: 24px;
+}
+
+.operator {
+    width: 70px;
+    height: 50px;
+    font-size: 24px;
 }
