@@ -18,13 +18,13 @@ button {
 
 .display {
     border: 2px solid black;
-    height: 24px;
+    height: 80px;
     margin-bottom: 20px;
 }
 
 .buttons {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 .digits {
