@@ -6,3 +6,8 @@ html, body {
     justify-content: center;
     align-items: center;
 }
+
+.display {
+    border: 2px solid black;
+    height: 24px;
+}
