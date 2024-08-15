@@ -10,4 +10,6 @@ html, body {
 .display {
     border: 2px solid black;
     height: 24px;
+    margin-bottom: 20px;
 }
+
