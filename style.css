@@ -13,3 +13,11 @@ html, body {
     margin-bottom: 20px;
 }
 
+.buttons {
+    display: flex;
+}
+
+.operators {
+    display: flex;
+    flex-direction: column;
+}
