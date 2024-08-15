@@ -7,8 +7,13 @@ html, body {
     align-items: center;
 }
 
+button {
+    border: 1px solid black;
+    padding: 0;
+}
+
 .calculator {
-    width: 300px;
+    width: 400px;
 }
 
 .display {
@@ -19,17 +24,28 @@ html, body {
 
 .buttons {
     display: flex;
+    justify-content: space-between;
+}
+
+.digits {
+    flex: auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
 }
 
 .operators {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
 }
 
 .digit {
-    width: 70px;
-    height: 70px;
+    width: 80px;
+    height: 80px;
     font-size: 24px;
+    margin-right: 8px;
 }
 
 .operator {
