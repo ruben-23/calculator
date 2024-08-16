@@ -81,10 +81,10 @@ digitButtons.forEach( (button) => {
 
     button.addEventListener("click", () => {
 
-        if(!firstNumber){
+        if(firstNumber === undefined){
             firstNumber = parseInt(buttonValue);
             updateDisplay(buttonValue);
-        } else if(!secondNumber){
+        } else if(secondNumber === undefined){
             secondNumber = parseInt(buttonValue);
             updateDisplay(buttonValue);
         } else {
