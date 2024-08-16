@@ -18,26 +18,22 @@ function operate(firstNumber, operator, secondNumber) {
 
     switch(operator) {
         case '+':
-            display(add(firstNumber, secondNumber));
+            updateDisplay(add(firstNumber, secondNumber));
             break;
         case '-':
-            display(substract(firstNumber, secondNumber));
+            updateDisplay(substract(firstNumber, secondNumber));
             break;
         case '*':
-            display(multiply(firstNumber, secondNumber));
+            updateDisplay(multiply(firstNumber, secondNumber));
             break;
         case '/':
-            display(divide(firstNumber, secondNumber));
+            updateDisplay(divide(firstNumber, secondNumber));
             break;    
     }
 }
 
 
-function display(displayValue) {
-
-    if(!isDigit(displayValue)){
-        return;
-    }
+function updateDisplay(displayValue) {
 
     const display = document.querySelector(".display");
 
@@ -65,27 +61,23 @@ function updateVariables(value) {
     } else if (isOperator(value)) {
         operand = value;
     } else {
-        firstNumber = result;
         secondNumber = value;
     }
 
 }
 
-
-
 let firstNumber;
 let operator;
 let secondNumber;
-let displayValue;
+let displayValue='';
 
-const buttons = document.querySelectorAll(".digits button");
+const buttons = document.querySelectorAll(".digits .digit");
 
 buttons.forEach( (button) => {
 
     button.addEventListener("click", () => {
-        displayValue = button.textContent;
-        display(displayValue);
-
+        displayValue += button.textContent;
+        updateDisplay(displayValue);
 
         updateVariables(displayValue);
 

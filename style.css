@@ -22,6 +22,9 @@ button {
     border: 2px solid black;
     height: 80px;
     margin-bottom: 20px;
+    padding: 0 10px 10px 0;
+    text-align: end;
+    font-size: 80px;
 }
 
 .buttons {
@@ -45,14 +48,14 @@ button {
     justify-content: space-between;
 }
 
-.digit {
+.left-button {
     width: 80px;
     height: 80px;
     font-size: 24px;
     margin-right: 8px;
 }
 
-.operator {
+.right-button {
     width: 80px;
     height: 50px;
     font-size: 24px;
