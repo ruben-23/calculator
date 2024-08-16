@@ -16,28 +16,29 @@ function divide(a, b) {
 
 function operate(firstNumber, operator, secondNumber) {
 
+   
     switch(operator) {
         case '+':
-            updateDisplay(add(firstNumber, secondNumber));
-            break;
+            return add(firstNumber, secondNumber);
+           
         case '-':
-            updateDisplay(substract(firstNumber, secondNumber));
-            break;
+            return substract(firstNumber, secondNumber);
+            
         case '*':
-            updateDisplay(multiply(firstNumber, secondNumber));
-            break;
+            return multiply(firstNumber, secondNumber);
+           
         case '/':
-            updateDisplay(divide(firstNumber, secondNumber));
-            break;    
+            return divide(firstNumber, secondNumber);
+               
     }
+
 }
 
-
-function updateDisplay(displayValue) {
+function updateDisplay(result) {
 
     const display = document.querySelector(".display");
 
-    display.textContent = displayValue;
+    display.textContent = result;
 
 }
 
@@ -56,32 +57,51 @@ function isOperator(value) {
 
 function updateVariables(value) {
 
-    if(!firstNumber && isDigit(value)){
-        firstNumber = value;
-    } else if (isOperator(value)) {
-        operand = value;
-    } else {
-        secondNumber = value;
-    }
-
 }
 
 let firstNumber;
-let operator;
 let secondNumber;
-let displayValue='';
+let operator = '+';
 
-const buttons = document.querySelectorAll(".digits .digit");
+let result = 0;
 
-buttons.forEach( (button) => {
+const digitButtons = document.querySelectorAll(".digit");
+const operatorButtons = document.querySelectorAll(".operator");
+const equalsButton = document.querySelector("#equals");
+
+equalsButton.addEventListener("click", () => {
+
+    result = operate(firstNumber, operator, secondNumber);
+    updateDisplay(result);
+});
+
+digitButtons.forEach( (button) => {
+
+    let buttonValue = button.textContent;
 
     button.addEventListener("click", () => {
-        displayValue += button.textContent;
-        updateDisplay(displayValue);
 
-        updateVariables(displayValue);
+        if(!firstNumber){
+            firstNumber = parseInt(buttonValue);
+            updateDisplay(buttonValue);
+        } else if(!secondNumber){
+            secondNumber = parseInt(buttonValue);
+            updateDisplay(buttonValue);
+        } else {
+            firstNumber = result;
+            secondNumber = parseInt(buttonValue);  
+ 
+            result = operate(firstNumber, operator, secondNumber);
+            updateDisplay(result);        
+        } 
+        
+       
+    });
+} );
 
+operatorButtons.forEach( (button) => {
+
+    button.addEventListener("click", () => {
+        operator = button.textContent;
     })
-
-} )
-
+});
