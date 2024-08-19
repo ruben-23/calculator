@@ -68,12 +68,25 @@ let result = 0;
 const digitButtons = document.querySelectorAll(".digit");
 const operatorButtons = document.querySelectorAll(".operator");
 const equalsButton = document.querySelector("#equals");
+const clearButtton = document.querySelector("#clear");
 
 equalsButton.addEventListener("click", () => {
+
+    if(firstNumber === undefined || secondNumber === undefined) return;
 
     result = operate(firstNumber, operator, secondNumber);
     updateDisplay(result);
 });
+
+clearButtton.addEventListener("click", () => {
+
+    firstNumber=undefined;
+    secondNumber=undefined;
+    result = undefined;
+    updateDisplay('');
+
+})
+
 
 digitButtons.forEach( (button) => {
 
