@@ -59,11 +59,11 @@ function updateVariables(value) {
 
 }
 
-let firstNumber;
-let secondNumber;
-let operator;
+let firstNumber = null;
+let secondNumber = null;
+let operator = null;
 
-let result = 0;
+let result = null;
 
 const digitButtons = document.querySelectorAll(".digit");
 const operatorButtons = document.querySelectorAll(".operator");
@@ -72,7 +72,7 @@ const clearButtton = document.querySelector("#clear");
 
 equalsButton.addEventListener("click", () => {
 
-    if(firstNumber === undefined || secondNumber === undefined) return;
+    if(firstNumber === null || secondNumber === null) return;
 
     result = operate(firstNumber, operator, secondNumber);
     updateDisplay(result);
@@ -80,9 +80,9 @@ equalsButton.addEventListener("click", () => {
 
 clearButtton.addEventListener("click", () => {
 
-    firstNumber=undefined;
-    secondNumber=undefined;
-    result = undefined;
+    firstNumber = null;
+    secondNumber = null;
+    result = null;
     updateDisplay('');
 
 })
@@ -94,10 +94,10 @@ digitButtons.forEach( (button) => {
 
     button.addEventListener("click", () => {
 
-        if(firstNumber === undefined){
+        if(firstNumber === null){
             firstNumber = parseInt(buttonValue);
             updateDisplay(buttonValue);
-        } else if(secondNumber === undefined){
+        } else if(secondNumber === null){
             secondNumber = parseInt(buttonValue);
             updateDisplay(buttonValue);
         } else {
