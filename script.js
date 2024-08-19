@@ -61,7 +61,7 @@ function updateVariables(value) {
 
 let firstNumber;
 let secondNumber;
-let operator = '+';
+let operator;
 
 let result = 0;
 
@@ -91,11 +91,9 @@ digitButtons.forEach( (button) => {
             firstNumber = result;
             secondNumber = parseInt(buttonValue);  
  
-            result = operate(firstNumber, operator, secondNumber);
-            updateDisplay(result);        
+            equalsButton.click();     
         } 
         
-       
     });
 } );
 
