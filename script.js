@@ -21,8 +21,7 @@ function divide(a, b) {
 }
 
 function operate(firstNumber, operator, secondNumber) {
-
-   
+  
     switch(operator) {
         case '+':
             return add(firstNumber, secondNumber);
@@ -37,15 +36,17 @@ function operate(firstNumber, operator, secondNumber) {
             return divide(firstNumber, secondNumber);
                
     }
-
 }
 
 function updateDisplay(result) {
 
     const display = document.querySelector(".display");
-
-    display.textContent = result;
-
+    
+    if(result.length > 9){
+        display.textContent = result.substring(0, 9);
+    } else {
+        display.textContent = result;
+    }
 }
 
 let firstNumber = null;
