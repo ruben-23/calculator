@@ -123,11 +123,11 @@ operatorButtons.forEach( (button) => {
             equalsButton.click();
         }
 
-        operator = button.textContent;
-
         if(firstNumber !== null){
             operatorCheck = true;
         }
+
+        operator = button.textContent;
 
     })
 });
