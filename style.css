@@ -11,7 +11,7 @@ html, body {
 button {
     border: 1px solid black;
     padding: 0;
-    border-radius: 60%;
+    border-radius: 100px;
     font-weight: bold;
     font-size: 28px;
 }
@@ -35,12 +35,26 @@ button {
 }
 
 .buttons {
-    display: flex;
-    justify-content: space-around;
     border: 1px solid black;
     padding: 10px;
     background-color: rgb(126, 129, 131);
     border-radius: 15px;
+}
+
+.upper-buttons {
+    display: flex;
+    justify-content: stretch;
+    gap: 30px;
+}
+
+.upper-buttons button {
+    width: 80px;
+    height: 50px;
+}
+
+.lower-buttons {
+    display: flex;
+    margin-top: 8px;
 }
 
 .digits {
@@ -57,18 +71,13 @@ button {
     justify-content: space-between;
 }
 
-.left-button {
+
+.circle-button {
     width: 80px;
     height: 80px;
-    /* font-size: 24px; */
     margin-right: 8px;
 }
 
-.right-button {
-    width: 80px;
-    height: 50px;
-    /* font-size: 24px; */
-}
 
 .digit {
     background-color: rgb(180, 187, 190);
@@ -78,8 +87,9 @@ button {
     background-color: rgb(154, 160, 175);
 }
 
-#clear {
+#clear, #delete {
     background-color: rgb(230, 84, 84);
+    flex: 1;  
 }
 
 #point, #equals {
