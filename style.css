@@ -14,32 +14,32 @@ button {
     border-radius: 60%;
 }
 
-.calculator-wrapper{
+.calculator {
+    width: 400px;
+    border: 3px solid rgb(46, 45, 45);
+    padding: 20px;   
+    border-radius: 15px; 
     background-color: rgb(86, 86, 86);
 }
 
-.calculator {
-    width: 400px;
-    border: 5px solid black;
-    padding: 20px
-}
-
 .display {
-    border: 2px solid black;
+    /* border: 2px solid black; */
     height: 80px;
     margin-bottom: 20px;
     padding: 0 10px 10px 0;
     text-align: end;
     font-size: 80px;
     background-color: rgb(175, 184, 189);
+    border-radius: 10px;
 }
 
 .buttons {
     display: flex;
     justify-content: space-around;
-    border: 2px solid black;
+    border: 1px solid black;
     padding: 10px;
     background-color: rgb(126, 129, 131);
+    border-radius: 15px;
 }
 
 .digits {
