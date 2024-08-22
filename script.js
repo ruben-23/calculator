@@ -11,7 +11,7 @@ function multiply(a, b){
 }
 
 function divide(a, b) {
-    return a/b;
+    return Math.round(a/b * 1000)/1000;
 }
 
 function operate(firstNumber, operator, secondNumber) {
@@ -42,23 +42,6 @@ function updateDisplay(result) {
 
 }
 
-
-function isDigit(value) {
-
-    const digits = "0123456789";
-
-    return digits.includes(value);
-
-}
-
-function isOperator(value) {
-    return "+-/*".includes(value);
-}
-
-function updateVariables(value) {
-
-}
-
 let firstNumber = null;
 let secondNumber = null;
 let operator = null;
@@ -66,6 +49,7 @@ let result = null;
 
 // to know if the operator has been pressed
 let operatorCheck = false;
+let equalsCheck = false;
 
 const digitButtons = document.querySelectorAll(".digit");
 const operatorButtons = document.querySelectorAll(".operator");
@@ -94,7 +78,6 @@ clearButtton.addEventListener("click", () => {
     updateDisplay('');
 
 })
-
 
 digitButtons.forEach( (button) => {
 
@@ -130,11 +113,18 @@ digitButtons.forEach( (button) => {
 operatorButtons.forEach( (button) => {
 
     button.addEventListener("click", () => {
+        
+        if(firstNumber && secondNumber && !equalsCheck){
+            equalsButton.click();
+        }
+
         operator = button.textContent;
 
         if(firstNumber){
             operatorCheck = true;
         }
+
+        
 
     })
 });
