@@ -49,7 +49,6 @@ let result = null;
 
 // to know if the operator has been pressed
 let operatorCheck = false;
-// let equalsCheck = false;
 
 const digitButtons = document.querySelectorAll(".digit");
 const operatorButtons = document.querySelectorAll(".operator");
@@ -60,11 +59,15 @@ equalsButton.addEventListener("click", () => {
 
     if(firstNumber === null || secondNumber === null) return;
 
+    if(secondNumber === 0){
+        alert("Can't divide by zero"); 
+        return;
+    } 
+
     result = operate(firstNumber, operator, secondNumber);
     updateDisplay(result);
 
     operatorCheck = false;
-    // equalsCheck = true;
 
     firstNumber = result;
     secondNumber = null;
@@ -76,7 +79,9 @@ clearButtton.addEventListener("click", () => {
     firstNumber = null;
     secondNumber = null;
     result = null;
-    updateDisplay('');
+    operator = null;
+    operatorCheck = false;
+    updateDisplay(0);
 
 })
 
@@ -115,7 +120,7 @@ operatorButtons.forEach( (button) => {
 
     button.addEventListener("click", () => {
         
-        if(firstNumber && secondNumber ){
+        if(firstNumber !== null && secondNumber !== null) {
             equalsButton.click();
         }
 
@@ -125,7 +130,7 @@ operatorButtons.forEach( (button) => {
             operatorCheck = true;
         }
 
-        
-
     })
 });
+
+updateDisplay(0);
