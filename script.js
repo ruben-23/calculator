@@ -49,7 +49,7 @@ let result = null;
 
 // to know if the operator has been pressed
 let operatorCheck = false;
-let equalsCheck = false;
+// let equalsCheck = false;
 
 const digitButtons = document.querySelectorAll(".digit");
 const operatorButtons = document.querySelectorAll(".operator");
@@ -64,6 +64,7 @@ equalsButton.addEventListener("click", () => {
     updateDisplay(result);
 
     operatorCheck = false;
+    // equalsCheck = true;
 
     firstNumber = result;
     secondNumber = null;
@@ -114,7 +115,7 @@ operatorButtons.forEach( (button) => {
 
     button.addEventListener("click", () => {
         
-        if(firstNumber && secondNumber && !equalsCheck){
+        if(firstNumber && secondNumber ){
             equalsButton.click();
         }
 
