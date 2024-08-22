@@ -62,9 +62,6 @@ const equalsButton = document.querySelector("#equals");
 const clearButtton = document.querySelector("#clear");
 
 equalsButton.addEventListener("click", () => {
-    console.log(firstNumber);
-    console.log(secondNumber === 0);
-    console.log(operator);
 
     if(firstNumber === null || secondNumber === null) return;
 
@@ -95,17 +92,14 @@ digitButtons.forEach( (button) => {
 
     button.addEventListener("click", () => {
 
-
         if(firstNumber === null) {
             firstNumber = parseInt(buttonValue);
-            console.log("miau 1");
             updateDisplay(firstNumber);
             return;
         }
 
         if (secondNumber === null && operatorCheck){
             secondNumber = parseInt(buttonValue);
-            console.log("miau 2");
             updateDisplay(secondNumber);
             return;
         } 
