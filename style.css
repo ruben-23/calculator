@@ -5,11 +5,17 @@ html, body {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: rgb(173, 173, 173);
 }
 
 button {
     border: 1px solid black;
     padding: 0;
+    border-radius: 60%;
+}
+
+.calculator-wrapper{
+    background-color: rgb(86, 86, 86);
 }
 
 .calculator {
@@ -25,6 +31,7 @@ button {
     padding: 0 10px 10px 0;
     text-align: end;
     font-size: 80px;
+    background-color: rgb(175, 184, 189);
 }
 
 .buttons {
@@ -32,6 +39,7 @@ button {
     justify-content: space-around;
     border: 2px solid black;
     padding: 10px;
+    background-color: rgb(126, 129, 131);
 }
 
 .digits {
@@ -59,4 +67,20 @@ button {
     width: 80px;
     height: 50px;
     font-size: 24px;
+}
+
+.digit {
+    background-color: rgb(180, 187, 190);
+}
+
+.operator {
+    background-color: rgb(154, 160, 175);
+}
+
+#clear {
+    background-color: rgb(230, 84, 84);
+}
+
+#point, #equals {
+    background-color: rgb(103, 87, 207);
 }
