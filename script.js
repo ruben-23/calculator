@@ -62,8 +62,10 @@ function updateVariables(value) {
 let firstNumber = null;
 let secondNumber = null;
 let operator = null;
-
 let result = null;
+
+// to know if the operator has been pressed
+let operatorCheck = false;
 
 const digitButtons = document.querySelectorAll(".digit");
 const operatorButtons = document.querySelectorAll(".operator");
@@ -76,6 +78,12 @@ equalsButton.addEventListener("click", () => {
 
     result = operate(firstNumber, operator, secondNumber);
     updateDisplay(result);
+
+    operatorCheck = false;
+
+    firstNumber = result;
+    secondNumber = null;
+
 });
 
 clearButtton.addEventListener("click", () => {
@@ -94,18 +102,27 @@ digitButtons.forEach( (button) => {
 
     button.addEventListener("click", () => {
 
-        if(firstNumber === null){
+
+        if(firstNumber === null) {
             firstNumber = parseInt(buttonValue);
-            updateDisplay(buttonValue);
-        } else if(secondNumber === null){
+            updateDisplay(firstNumber);
+            return;
+        }
+
+        if (secondNumber === null && operatorCheck){
             secondNumber = parseInt(buttonValue);
-            updateDisplay(buttonValue);
-        } else {
-            firstNumber = result;
-            secondNumber = parseInt(buttonValue);  
- 
-            equalsButton.click();     
+            updateDisplay(secondNumber);
+            return;
         } 
+
+        if(!operatorCheck){
+            firstNumber = firstNumber*10 + parseInt(buttonValue);
+            console.log(firstNumber);
+            updateDisplay(firstNumber);
+        } else {
+            secondNumber =  secondNumber*10 + parseInt(buttonValue);
+            updateDisplay(secondNumber);
+        }
         
     });
 } );
@@ -114,5 +131,10 @@ operatorButtons.forEach( (button) => {
 
     button.addEventListener("click", () => {
         operator = button.textContent;
+
+        if(firstNumber){
+            operatorCheck = true;
+        }
+
     })
 });
