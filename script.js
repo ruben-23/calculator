@@ -41,6 +41,8 @@ function operate(firstNumber, operator, secondNumber) {
 function updateDisplay(result) {
 
     const display = document.querySelector(".display");
+
+    result = result.toString();
     
     if(result.length > 9){
         display.textContent = result.substring(0, 9);
