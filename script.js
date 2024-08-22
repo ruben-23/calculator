@@ -72,7 +72,8 @@ equalsButton.addEventListener("click", () => {
 
     operatorCheck = false;
 
-    firstNumber = result;
+    (typeof result !== 'number') ? firstNumber = null : firstNumber = result;
+    
     secondNumber = null;
 
 });
