@@ -11,7 +11,13 @@ function multiply(a, b){
 }
 
 function divide(a, b) {
-    return Math.round(a/b * 1000)/1000;
+
+    if(secondNumber === 0){
+        alert("Can't divide by zero"); 
+        return;
+    } 
+
+    return Math.round(a/b * 10**6)/(10**6);
 }
 
 function operate(firstNumber, operator, secondNumber) {
@@ -56,13 +62,11 @@ const equalsButton = document.querySelector("#equals");
 const clearButtton = document.querySelector("#clear");
 
 equalsButton.addEventListener("click", () => {
+    console.log(firstNumber);
+    console.log(secondNumber === 0);
+    console.log(operator);
 
     if(firstNumber === null || secondNumber === null) return;
-
-    if(secondNumber === 0){
-        alert("Can't divide by zero"); 
-        return;
-    } 
 
     result = operate(firstNumber, operator, secondNumber);
     updateDisplay(result);
@@ -94,19 +98,20 @@ digitButtons.forEach( (button) => {
 
         if(firstNumber === null) {
             firstNumber = parseInt(buttonValue);
+            console.log("miau 1");
             updateDisplay(firstNumber);
             return;
         }
 
         if (secondNumber === null && operatorCheck){
             secondNumber = parseInt(buttonValue);
+            console.log("miau 2");
             updateDisplay(secondNumber);
             return;
         } 
 
         if(!operatorCheck){
             firstNumber = firstNumber*10 + parseInt(buttonValue);
-            console.log(firstNumber);
             updateDisplay(firstNumber);
         } else {
             secondNumber =  secondNumber*10 + parseInt(buttonValue);
@@ -126,7 +131,7 @@ operatorButtons.forEach( (button) => {
 
         operator = button.textContent;
 
-        if(firstNumber){
+        if(firstNumber !== null){
             operatorCheck = true;
         }
 
