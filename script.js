@@ -13,8 +13,7 @@ function multiply(a, b){
 function divide(a, b) {
 
     if(secondNumber === 0){
-        alert("Can't divide by zero"); 
-        return;
+        return "ERROR";   
     } 
 
     return Math.round(a/b * 10**6)/(10**6);
