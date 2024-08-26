@@ -43,13 +43,21 @@ button {
 
 .upper-buttons {
     display: flex;
-    justify-content: stretch;
-    gap: 30px;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
 }
 
-.upper-buttons button {
+.upper-buttons .left {
+    flex: 1;
+    display: flex;
+    justify-content: stretch;
+    gap: 12px;
+}
+
+.upper-buttons .left button {
     width: 80px;
-    height: 50px;
+    height: 60px;
 }
 
 .lower-buttons {
@@ -89,7 +97,7 @@ button {
 
 #clear, #delete {
     background-color: rgb(230, 84, 84);
-    flex: 1;  
+    flex: 3;  
 }
 
 #point, #equals {
