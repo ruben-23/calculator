@@ -62,6 +62,7 @@ const digitButtons = document.querySelectorAll(".digit");
 const operatorButtons = document.querySelectorAll(".operator");
 const equalsButton = document.querySelector("#equals");
 const clearButtton = document.querySelector("#clear");
+const deleteButton = document.querySelector("#delete");
 
 equalsButton.addEventListener("click", () => {
 
@@ -87,7 +88,25 @@ clearButtton.addEventListener("click", () => {
     operatorCheck = false;
     updateDisplay(0);
 
-})
+});
+
+
+deleteButton.addEventListener("click", () => {
+
+    if(!operatorCheck && firstNumber !== null){
+        firstNumber >= 0 ? 
+            firstNumber = Math.floor(firstNumber / 10) : 
+            firstNumber = Math.ceil(firstNumber / 10);
+        updateDisplay(firstNumber);
+    } else if(secondNumber) {
+        secondNumber >= 0 ? 
+            secondNumber = Math.floor(secondNumber / 10) :  
+            secondNumber = Math.ceil(secondNumber / 10);
+        updateDisplay(secondNumber);
+    } 
+
+});
+
 
 digitButtons.forEach( (button) => {
 
@@ -122,6 +141,7 @@ operatorButtons.forEach( (button) => {
 
     button.addEventListener("click", () => {
         
+        //user clicks on another operator(instead of equal)
         if(firstNumber !== null && secondNumber !== null) {
             equalsButton.click();
         }
