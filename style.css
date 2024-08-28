@@ -91,7 +91,7 @@ button {
     background-color: rgb(180, 187, 190);
 }
 
-.operator {
+.operator, #sign {
     background-color: rgb(154, 160, 175);
 }
 
