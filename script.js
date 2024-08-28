@@ -63,6 +63,7 @@ const operatorButtons = document.querySelectorAll(".operator");
 const equalsButton = document.querySelector("#equals");
 const clearButtton = document.querySelector("#clear");
 const deleteButton = document.querySelector("#delete");
+const signButton = document.querySelector("#sign"); 
 
 equalsButton.addEventListener("click", () => {
 
@@ -104,6 +105,19 @@ deleteButton.addEventListener("click", () => {
             secondNumber = Math.ceil(secondNumber / 10);
         updateDisplay(secondNumber);
     } 
+
+});
+
+
+signButton.addEventListener("click", () => {
+
+    if(!operatorCheck && firstNumber !== null) {
+        firstNumber *= -1;
+        updateDisplay(firstNumber);
+    } else if(secondNumber !== null) { 
+        secondNumber *= -1;
+        updateDisplay(secondNumber);
+    }
 
 });
 
